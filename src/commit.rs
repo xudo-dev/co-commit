@@ -49,7 +49,7 @@ pub async fn generate_commit(args: &CommandArgs) -> Result<(), Box<dyn std::erro
         .stdout;
     let output = String::from_utf8(output.clone()).unwrap();
 
-    println!("Generating diff...{:?}", output);
+    println!("Generating diff... bruh{:?}", output);
 
     if !args.dry_run {
         println!("Generating commit message...");
@@ -66,7 +66,7 @@ pub async fn generate_commit(args: &CommandArgs) -> Result<(), Box<dyn std::erro
     .stop(vec!["EOF".into()]).clone();
 
     println!("prompt generated {:?}", ai_prompt.build());
-    return Ok(());
+    // return Ok(());
 
     let mut spinner = Spinner::new(Spinners::Dots12, "Generating commit message...".into());
     let completion = client.complete_prompt_sync(ai_prompt.build().unwrap()).expect("Failed to generate commit message.");
